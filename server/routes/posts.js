@@ -2,6 +2,7 @@ import express from "express";
 
 import {
   getPosts,
+  getPostsBySearch,
   createPost,
   updatePost,
   likePost,
@@ -13,6 +14,7 @@ import authMiddleware from "../middleware/auth.js";
 const router = express.Router();
 
 router.get("/", getPosts);
+router.get("/search", getPostsBySearch);
 router.post("/", authMiddleware, createPost);
 router.patch("/:id", authMiddleware, updatePost);
 router.patch("/:id/likePost", authMiddleware, likePost);

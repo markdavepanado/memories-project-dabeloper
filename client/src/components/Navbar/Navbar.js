@@ -5,14 +5,15 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import { AppBar, Avatar, Typography, Toolbar, Button } from "@material-ui/core";
 
 import useStyles from "./styles";
-import memories from "../../images/memories.png";
+import memoriesLogo from "../../images/memories-Logo.png";
+import memoriesText from "../../images/memories-Text.png";
 
-const Navbar = () => {
+const Navbar = ({ user, setUser }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
   const classes = useStyles();
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  // const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
@@ -33,18 +34,15 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.appBar} position='static' color='inherit'>
-      <div className={classes.brandContainer}>
-        <Typography
-          component={Link}
-          to='/'
-          className={classes.heading}
-          variant='h2'
-          align='center'
-        >
-          Memories
-        </Typography>
-        <img className={classes.image} src={memories} alt='icon' height='60' />
-      </div>
+      <Link to='/' className={classes.brandContainer}>
+        <img src={memoriesText} alt='icon' height='45px' />
+        <img
+          className={classes.image}
+          src={memoriesLogo}
+          alt='icon'
+          height='40px'
+        />
+      </Link>
       <Toolbar className={classes.toolbar}>
         {user ? (
           <div className={classes.profile}>
