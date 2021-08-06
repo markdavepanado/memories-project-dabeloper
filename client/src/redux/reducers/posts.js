@@ -1,6 +1,7 @@
 import {
   START_LOADING,
   END_LOADING,
+  FETCH_POST,
   FETCH_ALL,
   FETCH_BY_SEARCH,
   CREATE,
@@ -15,6 +16,8 @@ const reducer = (state = { isLoading: true, posts: [] }, action) => {
       return { ...state, isLoading: true };
     case END_LOADING:
       return { ...state, isLoading: false };
+    case FETCH_POST:
+      return { ...state, post: action.payload };
     case FETCH_ALL:
       return {
         ...state,
