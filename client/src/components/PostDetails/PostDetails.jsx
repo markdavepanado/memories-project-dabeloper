@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 
 import { getPost, getPostsBySearch } from "../../redux/actions/posts";
+import CommentSection from "./CommentSection";
 import useStyles from "./styles";
 
 const PostDetails = () => {
@@ -70,9 +71,7 @@ const PostDetails = () => {
             <strong>Realtime Chat - coming soon!</strong>
           </Typography>
           <Divider style={{ margin: "20px 0" }} />
-          <Typography variant='body1'>
-            <strong>Comments - coming soon!</strong>
-          </Typography>
+          <CommentSection post={post} />
           <Divider style={{ margin: "20px 0" }} />
         </div>
         <div className={classes.imageSection}>
